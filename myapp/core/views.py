@@ -1,7 +1,7 @@
 # core/views.py 
 
 from flask import render_template, request, Blueprint
-from myapp.models import BlogPost
+from myapp.models import TravelPost
 
 core = Blueprint('core', __name__)
 
