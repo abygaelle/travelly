@@ -46,3 +46,16 @@ def update(travel_post_id):
         form.text.data = travel_post.text
 
     return render_template('create_post.html',title='Updating',form=form)
+
+@travel_posts.route('/<int:travel_post_id>/delete',methods=['GET','POST'])
+@login_required
+def delete_post(travel_post_id):
+
+    travel_post = TravelPost.query.get_or_404(travel_post_id)
+    if travel_post.author != current_user:
+        abort(403)
+
+    db.session.delete(travel_post)
+    db.session.commit()
+    flash('Travel Post Deleted')
+    return redirect(url_for('core.index'))
