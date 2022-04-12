@@ -23,3 +23,26 @@ def create_post():
 def travel_post(travel_post_id):
     travel_post = TravelPost.query.get_or_404(travel_post_id) 
     return render_template('travel_post.html', title=travel_post.title, date=travel_post.date, post=travel_post)
+
+@travel_posts.route('/<int:travel_post_id>/update',methods=['GET','POST'])
+@login_required
+def update(travel_post_id):
+    travel_post = TravelPost.query.get_or_404(travel_post_id)
+
+    if travel_post.author != current_user:
+        abort(403)
+
+    form = TravelPostForm()
+
+    if form.validate_on_submit():
+        travel_post.title = form.title.data
+        travel_post.text = form.text.data
+        db.session.commit()
+        flash('Travel Post Updated')
+        return redirect(url_for('travel_posts.blog_post',travel_post_id=travel_post.id))
+
+    elif request.method == 'GET':
+        form.title.data = travel_post.title
+        form.text.data = travel_post.text
+
+    return render_template('create_post.html',title='Updating',form=form)
