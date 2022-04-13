@@ -74,5 +74,5 @@ def account():
 def user_posts(username):
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    blog_posts = TravelPost.query.filter_by(author=user).order_by(TravelPost.date.desc()).paginate(page=page, per_page=5) 
+    travel_posts = TravelPost.query.filter_by(author=user).order_by(TravelPost.date.desc()).paginate(page=page, per_page=5) 
     return render_template('user_travel_posts.html', travel_posts=travel_posts, user=user)

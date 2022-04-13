@@ -8,37 +8,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <title>Party!</title>
 
 </head>
 <body>
-    <ul class="nav">
-        <li class="nav-link">
-            <a href="{{url_for('core.index')}}">Home</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('core.info')}}">About</a>
-        </li>
-
-        {% if current_user.is_authenticated %}
-        <li class="nav-link">
-            <a href="{{url_for('travel_posts.create_post')}}">Create Post</a> 
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('users.logout')}}">Log Out</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('users.account')}}">Account</a>
-        </li>
-        {% else %}
-        <li class="nav-link">
-            <a href="{{url_for('users.login')}}">Log In</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('users.register')}}">Register</a>
-        </li>
-        {% endif %}
-    </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+            <a class="navbar-bran text-info" href="{{url_for('core.index')}}">
+            <img src="{{ url_for('static', filename='logo1.png') }}" alt="" width="30" height="24" class="d-inline-block align-text-top"> Travelly</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" >
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{url_for('core.index')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('core.info')}}">About</a>
+                </li>
+        
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('travel_posts.create_post')}}">Create Post</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Account
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{url_for('users.account')}}">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('users.logout')}}">Log Out</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{{url_for('users.login')}}">Log In</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('users.register')}}">Register</a></li>
+                    {% endif %}
+                    </ul>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        
 
     <div class="container">
         {% block content %}
@@ -47,3 +59,4 @@
     </div>
 </body>
 </html>
+
