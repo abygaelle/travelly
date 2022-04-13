@@ -13,15 +13,15 @@
 
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fs-5 text-white custom-navbar">
             <div class="container-fluid">
-            <a class="navbar-bran text-info" href="{{url_for('core.index')}}">
+            <a class="navbar-bran text-decoration-none text-white" href="{{url_for('core.index')}}">
             <img src="{{ url_for('static', filename='logo1.png') }}" alt="" width="30" height="24" class="d-inline-block align-text-top"> Travelly</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" >
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav nav__links ms-auto">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{url_for('core.index')}}">Home</a>
                 </li>

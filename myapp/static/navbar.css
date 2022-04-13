@@ -1,4 +1,22 @@
-.spcaing{
-  display: flex;
-  justify-content: flex-end;
+.custom-navbar{
+  background-color: #006d77;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav-link{
+  background-color: #006d77;
+  transition: all 0.3s ease 0s;
+  margin-left: 20px;
+  padding: 9px 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+
+}
+
+.nav-link:hover{
+  background-color: #83c5be;
 }
