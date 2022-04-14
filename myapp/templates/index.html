@@ -1,9 +1,7 @@
 {% extends "base.html" %} {% block content %}
-<div class="container-fluid">
-  <h1 class="text-style">All Travel Post</h1>
-</div>
-<div class="container-fluid">
-  <div class="row">
+<h1 class="text-style">All Travel Post</h1>
+
+<div class="container row gap-5" id="card-container">
     {% for post in travel_posts.items %}
     <div class="card shadow-lg" style="width: 17rem">
       <img
@@ -86,10 +84,9 @@
         </div>
       </div>
     </div>
-  </div>
   {% endfor %}
 </div>
-
+<br>
 <nav aria-label="Page Navigation example btn-page">
   <ul class="pagination justify-content-center">
     {% for page_num in travel_posts.iter_pages(left_edge=1, right_edge=1,

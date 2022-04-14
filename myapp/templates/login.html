@@ -1,11 +1,16 @@
-{% extends "base.html" %}
-{% block content %}
-   
-<form method="POST">
-    {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email}}<br>
-    {{form.password.label}}{{form.password}}<br>
-    {{form.submit()}}
+{% extends "base.html" %} {% block content %}
 
+<form method="POST">
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="card">
+        <div class="">{{form.hidden_tag()}} {{form.email.label(class="")}}</div>
+        <div class="">{{form.email(class="")}}<br /></div>
+        <div class="">
+            {{form.password.label}}{{form.password}}<br />
+
+            {{form.submit()}}
+        </div>
+        </div>
+    </div>
 </form>
 {% endblock %}

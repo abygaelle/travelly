@@ -25,24 +25,24 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{url_for('core.index')}}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('core.info')}}">About</a>
+                <li class="nav-item text-white">
+                    <a class="nav-link active" href="{{url_for('core.info')}}">About</a>
                 </li>
         
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('travel_posts.create_post')}}">Create Post</a>
+                    <a class="nav-link active" href="{{url_for('travel_posts.create_post')}}">Create Post</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Account
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="{{url_for('users.account')}}">Profile</a></li>
-                    <li><a class="dropdown-item" href="{{url_for('users.logout')}}">Log Out</a></li>
+                    <li><a class="dropdown-item text-white" href="{{url_for('users.account')}}">Profile</a></li>
+                    <li><a class="dropdown-item text-white" href="{{url_for('users.logout')}}">Log Out</a></li>
                     {% else %}
-                    <li><a class="dropdown-item" href="{{url_for('users.login')}}">Log In</a></li>
-                    <li><a class="dropdown-item" href="{{url_for('users.register')}}">Register</a></li>
+                    <li><a class="dropdown-item nav-custom text-white" href="{{url_for('users.login')}}">Log In</a></li>
+                    <li><a class="dropdown-item nav-custom text-white" href="{{url_for('users.register')}}">Register</a></li>
                     {% endif %}
                     </ul>
                 </li>
