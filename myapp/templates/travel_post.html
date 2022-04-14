@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+<!-- {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
   <h1>{{ post.title }}</h1>
@@ -6,13 +6,13 @@
   <h3>Published: {{ post.date.strftime('%B %d, %Y') }}</h3>
   <p>{{post.text}}</p>
   {% if post.author == current_user %}
-    <div>
-        <a class="btn btn-secondary" href="{{ url_for('travel_posts.update', travel_post_id=post.id) }}">Update</a>
+    <div class="modal-footer">
+        <a class="btn" href="{{ url_for('travel_posts.update', travel_post_id=post.id) }}">Update</a>
         <br>
-        <form action="{{ url_for('blog_posts.delete_post', travel_post_id=post.id) }}" method="POST">
-        <input class="btn btn-danger" type="submit" value="Delete">
+        <form action="{{ url_for('travel_posts.delete_post', travel_post_id=post.id) }}" method="POST">
+        <input class="btn" type="submit" value="Delete">
       </form>
     </div>
   {% endif %}
 </div>
-{% endblock content %}
+{% endblock content %} -->

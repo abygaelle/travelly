@@ -43,7 +43,7 @@ body{
   font-size: 30px;
 }
 
-.card{
+.card, .modal-card{
   background-color: #ffddd2;
 }
 
@@ -52,12 +52,18 @@ body{
   color: black;
 }
 
-.btn, .btn-page{
+.btn{
   background-color: #006d77;
   color: white;
 }
 
-.btn:hover, .btn-page:hover{
+.btn:hover{
   background-color: #83c5be;
   color: white;
 }
+
+.md-title{
+  justify-content: center;
+  size: 30px;
+}
+

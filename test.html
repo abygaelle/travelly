@@ -31,3 +31,110 @@
     </div>
   </div>
 </div>
+
+{% extends "base.html" %} {% block content %}
+<div class="container-fluid">
+  <h1 class="text-style">All Travel Post</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    {% for post in travel_posts.items %}
+    <div class="card shadow-lg" style="width: 17rem">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static', filename='placeholder.png') }}"
+        alt="placeholder"
+      />
+      <div class="card-body">
+        <p class="card-title text-center text-decoration-none text">
+          {{post.title}}
+        </p>
+        <p
+          class="card-text text-decoration-none blockquote-footer"
+          href="{{url_for('users.user_posts', username=post.author.username)}}"
+        >
+          Written by: {{post.author.username}}
+        </p>
+        <p class="blockquote-footer text-quote">
+          Published on: {{post.date.strftime('%m - %d - %Y')}}
+        </p>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button
+            type="button"
+            class="btn text-center"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal{{ post.id }}"
+          >
+            Details
+          </button>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal{{ post.id }}"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  {{ post.title }}
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <h2>Written by: {{post.author.username}}</h2>
+                <h3>Published: {{ post.date.strftime('%B %d, %Y') }}</h3>
+                <p>{{post.text}}</p>
+              </div>
+
+              <div class="modal-footer">
+                {% if post.author == current_user %}
+                <a
+                  class="btn"
+                  href="{{ url_for('travel_posts.update', travel_post_id=post.id) }}"
+                  >Update</a
+                >
+                <form
+                  action="{{ url_for('travel_posts.delete_post', travel_post_id=post.id) }}"
+                  method="POST"
+                >
+                  <input class="btn" type="submit" value="Delete" />
+                </form>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<nav aria-label="Page Navigation example btn-page">
+  <ul class="pagination justify-content-center">
+    {% for page_num in travel_posts.iter_pages(left_edge=1, right_edge=1,
+    left_current=1, right_current=2) %} {% if travel_posts.page == page_num %}
+    <li class="page-item disabled btn-page">
+      <a class="page-link" href="{{url_for('core.index', page=page_num)}}"
+        >{{ page_num }}</a
+      >
+    </li>
+    {% else %}
+    <li class="page-item">
+      <a class="page-link" href="{{url_for('core.index', page=page_num)}}"
+        >{{ page_num }}</a
+      >
+    </li>
+    {% endif %} {% endfor %}
+  </ul>
+</nav>
+{% endblock %}
