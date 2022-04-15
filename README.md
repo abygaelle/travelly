@@ -2,14 +2,14 @@
 
 Visit Travelly <a href="" target="blank">here</a>
 ___
-## 💡 Motivation 💡
+## 💡 Inspiration 💡
 ___
-alksdfjn
+Travelly is an app where people around the world could go on and post there favorite places to visit. It could be either a resturant, amusement park, museum, or a historical site. People would be able to post and explain why they love that place and why a someone should visit.
 ___
-## 🎥 View 🎥 
+## 🎥 Images 🎥 
 ___
-![view1]()
-![view2]()
+![view1](myapp/static/view1.jpg)
+![view2](myapp/static/view2.jpg)
 ___
 ## 💾 Technologies 💾
 ___
@@ -25,8 +25,7 @@ ___
 ___
 ## 🎬 Credits 🎬
 ___
-* [PurplexMoss](https://codepen.io/purplexmoss/pen/PoPyzMW)
-* []()
+* [Error page by PurplexMoss](https://codepen.io/purplexmoss/pen/PoPyzMW)
 ___
 ## 🧊 Ice Box 🧊
 ____
