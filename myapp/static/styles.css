@@ -71,8 +71,3 @@ body{
   padding: 8px;
 }
 
-#card-container{
-  display: flex;
-  flex-direction: row;
-  
-}
