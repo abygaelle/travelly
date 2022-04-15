@@ -2,91 +2,90 @@
 <h1 class="text-style">All Travel Post</h1>
 
 <div class="container row gap-5" id="card-container">
-    {% for post in travel_posts.items %}
-    <div class="card shadow-lg" style="width: 17rem">
-      <img
-        class="card-img-top"
-        src="{{ url_for('static', filename='placeholder.png') }}"
-        alt="placeholder"
-        
-      />
-      <div class="card-body">
-        <p class="card-title text-center text-decoration-none text">
-          {{post.title}}
-        </p>
-        <p
-          class="card-text text-decoration-none blockquote-footer"
-          href="{{url_for('users.user_posts', username=post.author.username)}}"
+  {% for post in travel_posts.items %}
+  <div class="card shadow-lg" style="width: 17rem">
+    <img
+      class="card-img-top"
+      src="{{ url_for('static', filename='placeholder.png') }}"
+      alt="placeholder"
+    />
+    <div class="card-body">
+      <p class="card-title text-center text-decoration-none text">
+        {{post.title}}
+      </p>
+      <p
+        class="card-text text-decoration-none blockquote-footer"
+        href="{{url_for('users.user_posts', username=post.author.username)}}"
+      >
+        Written by: {{post.author.username}}
+      </p>
+      <p class="blockquote-footer text-quote">
+        Published on: {{post.date.strftime('%m - %d - %Y')}}
+      </p>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button
+          type="button"
+          class="btn text-center"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal{{ post.id }}"
         >
-          Written by: {{post.author.username}}
-        </p>
-        <p class="blockquote-footer text-quote">
-          Published on: {{post.date.strftime('%m - %d - %Y')}}
-        </p>
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <button
-            type="button"
-            class="btn text-center"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal{{ post.id }}"
-          >
-            Details
-          </button>
-        </div>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="exampleModal{{ post.id }}"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
-            <div class="modal-content modal-card">
-              <div class="modal-header text-center">
-                
-                <h5 class="modal-title fs-1 w-100" id="exampleModalLabel">
-                  {{ post.title }}
-                </h5>
-                
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <hr>
-              <div class="modal-body">
-                <p class="fs-4">{{post.text}}</p>
-                <h2 class="fs-6">Written by: {{post.author.username}}</h2>
-                <h3 class="fs-6">Published: {{ post.date.strftime('%B %d, %Y') }}</h3>
-                
-              </div>
-              <hr>
-              <div class="modal-footer">
-                {% if post.author == current_user %}
-                <a
-                  class="btn"
-                  href="{{ url_for('travel_posts.update', travel_post_id=post.id) }}"
-                  >Update</a
-                >
-                <form
-                  action="{{ url_for('travel_posts.delete_post', travel_post_id=post.id) }}"
-                  method="POST"
-                >
-                  <input class="btn" type="submit" value="Delete" />
-                </form>
-              </div>
-              {% endif %}
+          Details
+        </button>
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal{{ post.id }}"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content modal-card">
+            <div class="modal-header text-center">
+              <h5 class="modal-title fs-1 w-100" id="exampleModalLabel">
+                {{ post.title }}
+              </h5>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
+            <hr />
+            <div class="modal-body">
+              <p class="fs-4">{{post.text}}</p>
+              <h2 class="fs-6">Written by: {{post.author.username}}</h2>
+              <h3 class="fs-6">
+                Published: {{ post.date.strftime('%B %d, %Y') }}
+              </h3>
+            </div>
+            <hr />
+            <div class="modal-footer">
+              {% if post.author == current_user %}
+              <a
+                class="btn"
+                href="{{ url_for('travel_posts.update', travel_post_id=post.id) }}"
+                >Update</a
+              >
+              <form
+                action="{{ url_for('travel_posts.delete_post', travel_post_id=post.id) }}"
+                method="POST"
+              >
+                <input class="btn" type="submit" value="Delete" />
+              </form>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
+  </div>
   {% endfor %}
 </div>
-<br>
+<br />
 <nav aria-label="Page Navigation example btn-page">
   <ul class="pagination justify-content-center">
     {% for page_num in travel_posts.iter_pages(left_edge=1, right_edge=1,

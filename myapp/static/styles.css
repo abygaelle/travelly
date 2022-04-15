@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
-.custom-navbar{
+.custom-navbar {
   background-color: #006d77;
 }
 
@@ -8,7 +8,9 @@
   padding: 0px 20px;
 }
 
-.nav-links, .dropdown-item, .nav-link{
+.nav-links,
+.dropdown-item,
+.nav-link {
   background-color: #006d77;
   transition: all 0.3s ease 0s;
   /* margin-left: 20px;
@@ -16,58 +18,58 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
-
 }
 
-.nav-links:hover, .dropdown-item:hover, .nav-link:hover{
+.nav-links:hover,
+.dropdown-item:hover,
+.nav-link:hover {
   background-color: #83c5be;
 }
 
-body{
-  background-image: url('/static/bg.jpg');
+body {
+  background-image: url("/static/bg.jpg");
   /* background-position: top; */
   /* background-repeat: no-repeat; */
   background-size: 100%;
-  font-family: 'Abril Fatface', cursive;
+  font-family: "Abril Fatface", cursive;
 }
 
-.text-style{
+.text-style {
   color: white;
   text-align: center;
   font-size: 60px;
   text-shadow: 4px 4px 5px black;
-  
 }
 
-.text{
+.text {
   font-size: 30px;
 }
 
-.card, .modal-card{
+.card,
+.modal-card {
   background-color: #ffddd2;
 }
 
-.blockquote-footer{
+.blockquote-footer {
   font-size: 15px;
   color: black;
 }
 
-.btn{
+.btn {
   background-color: #006d77;
   color: white;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #83c5be;
   color: white;
 }
 
-.md-title{
+.md-title {
   justify-content: center;
   size: 30px;
 }
 
-.nav-custom{
+.nav-custom {
   padding: 8px;
 }
-
