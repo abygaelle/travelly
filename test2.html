@@ -1,3 +1,4 @@
+<form method="POST" action="" enctype="multipart/form-data"></form>
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -7,16 +8,16 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Create a Post</h2>
+              <h2 class="fw-bold mb-2">Welcome to the page for {{current_user.username}}</h2>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX">{{form.hidden_tag()}}{{form.title.label(class="form-control-label")}}
-                  {{form.title(class="form-control form-control-lg")}}</label>
+                <label class="form-label" for="typeEmailX">{{form.hidden_tag()}}{{form.username.label(class='form-group')}} 
+                  {{form.username(class="form-control form-control-lg")}}</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">{{form.text.label(class="form-control-label")}}
-                  {{form.text(class="form-control form-control-lg")}}</label>
+                <label class="form-label" for="typePasswordX">{{form.email.label(class='form-group')}} 
+                  {{form.email(class="form-control form-control-lg")}}</label>
               </div>
 
 
@@ -34,18 +35,3 @@
 </section>
 </form>
 
-<div class="container">
-  <form class="form-group" method="POST">
-      
-
-      <div class="form-group">
-          {{form.hidden_tag()}}{{form.title.label(class="form-control-label")}}
-          {{form.title(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.text.label(class="form-control-label")}}
-        {{form.text(class="form-control form-control-lg")}}
-    </div>
-    <div class="form-group">
-        {{form.submit(class="btn")}}
-    </div>
