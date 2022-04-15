@@ -7,38 +7,23 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
-              <p class="text-black-50 mb-5">Please register to create a post!</p>
+              <h2 class="fw-bold mb-2 text-uppercase">Create a Post</h2>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX">{{form.hidden_tag()}} {{form.email.label}}{{form.email(class="form-control form-control-lg")}}</label>
+                <label class="form-label" for="typeEmailX">{{form.hidden_tag()}}{{form.title.label(class="form-control-label")}}
+                  {{form.title(class="form-control form-control-lg")}}</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">{{form.username.label}}{{form.username(class="form-control form-control-lg")}}</label>
+                <label class="form-label" for="typePasswordX">{{form.text.label(class="form-control-label")}}
+                  {{form.text(class="form-control form-control-lg")}}</label>
               </div>
 
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">{{form.username.label}}{{form.username(class="form-control form-control-lg")}}</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">{{form.password.label}}{{form.password(class="form-control form-control-lg")}}</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">{{{form.pass_confirm.label}}{{form.pass_confirm(class="form-control form-control-lg")}}</label>
-              </div>
 
               {{form.submit(class="btn btn-outline-light btn-lg px-5")}}
 
   
 
-            </div>
-
-            <div>
-              <p class="mb-0">Already have an account? <a href="{{url_for('users.login')}}" class="text-blue-50 fw-bold">Sign In</a>
-              </p>
             </div>
 
           </div>
@@ -48,3 +33,19 @@
   </div>
 </section>
 </form>
+
+<div class="container">
+  <form class="form-group" method="POST">
+      
+
+      <div class="form-group">
+          {{form.hidden_tag()}}{{form.title.label(class="form-control-label")}}
+          {{form.title(class="form-control form-control-lg")}}
+      </div>
+      <div class="form-group">
+        {{form.text.label(class="form-control-label")}}
+        {{form.text(class="form-control form-control-lg")}}
+    </div>
+    <div class="form-group">
+        {{form.submit(class="btn")}}
+    </div>
